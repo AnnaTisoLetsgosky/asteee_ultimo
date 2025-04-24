@@ -80,7 +80,7 @@ export default function Home() {
   const featuredAuctions = [
     {
       id: 1,
-      title: "Lotto di rifiuti elettronici (RAEE)",
+      title: "daje roma",
       currentBid: "€350",
       image: "rifiuti1.png?height=300&width=400",
       timeLeft: "4h 10m",
