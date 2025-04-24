@@ -1,0 +1,31 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int      @id @default(autoincrement())
+  name           String
+  email          String   @unique
+  password       String
+  companyType    CompanyType
+  companyName    String
+  vatNumber      String
+  alboPdfUrl     String?  // URL del PDF caricato (opzionale)
+  cat8PdfUrl     String?  // Solo per "manufacturing"
+  acceptedTerms  Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+enum CompanyType {
+  retail
+  manufacturing
+  wholesale
+}
